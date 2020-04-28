@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "540421815286",
+    "firebase_url": "https://bookscatcher-bb0f7.firebaseio.com",
+    "project_id": "bookscatcher-bb0f7",
+    "storage_bucket": "bookscatcher-bb0f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540421815286:android:88a1e135547925aef7e5d7",
+        "android_client_info": {
+          "package_name": "com.sonyw.bookscatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540421815286-eee2hqtkqglbi401gce8i6p3vdm8skn8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sonyw.bookscatcher",
+            "certificate_hash": "3e863d9cc8d79347a620c45881710b9d9cc7a6ea"
+          }
+        },
+        {
+          "client_id": "540421815286-par0rq1gu5glfmelfb2bua1qb8p7m29n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLrkNrhJGy9rUHktqraQmdeLSDLddxaFI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540421815286-par0rq1gu5glfmelfb2bua1qb8p7m29n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
