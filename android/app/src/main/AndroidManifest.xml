@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.sonyw.bookscatcher">
+  package="com.sonyw.bookscatcher"
+  xmlns:tools="http://schemas.android.com/tools"
+  >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -8,8 +10,13 @@
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
-      android:allowBackup="false"
+      android:allowBackup="true"
       android:theme="@style/AppTheme">
+      <meta-data
+        android:name="com.facebook.sdk.ApplicationId"
+        tools:replace="android:value"
+        android:value="@string/facebook_app_id"
+      />
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
@@ -19,6 +26,11 @@
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />

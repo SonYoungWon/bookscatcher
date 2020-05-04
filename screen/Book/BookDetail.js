@@ -1,35 +1,17 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import {
-  Divider,
-  Icon,
-  Layout,
-  Text,
-  TopNavigation,
-  TopNavigationAction,
-} from '@ui-kitten/components';
+import {BookAddStyle} from './style';
+import {SCREEN} from '../../global/enum';
+import {Layout, Text} from '@ui-kitten/components';
+import {TopNavigationAccessoriesShowcase} from '../../navigation/NavigationHeader';
 
-const BackIcon = props => <Icon {...props} name="arrow-back" />;
-
-export const DetailsScreen = ({navigation}) => {
-  const navigateBack = () => {
-    navigation.goBack();
-  };
-
-  const BackAction = () => (
-    <TopNavigationAction icon={BackIcon} onPress={navigateBack} />
-  );
-
+export default ({route, navigation}) => {
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <TopNavigation
-        title="MyApp"
-        alignment="center"
-        leftControl={BackAction()}
-      />
-      <Divider />
+    <SafeAreaView style={BookAddStyle.container}>
+      <TopNavigationAccessoriesShowcase navigation={navigation} route={route}/>
       <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text category="h1">DETAILS</Text>
+        <Text category="h1">책 자세히보기</Text>
       </Layout>
     </SafeAreaView>
   );

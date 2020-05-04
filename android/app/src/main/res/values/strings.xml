@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">bookscatcher</string>
+    <string name="facebook_app_id">538353020208078</string> 
+    <string name="fb_login_protocol_scheme">fb538353020208078</string>
 </resources>

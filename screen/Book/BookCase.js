@@ -1,19 +1,34 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-import {Button, Divider, Layout, TopNavigation} from '@ui-kitten/components';
-
-export const HomeScreen = ({navigation}) => {
+import {SafeAreaView, ScrollView} from 'react-native';
+import {Text, Layout, Icon} from '@ui-kitten/components';
+import Loading from '../../components/Loading';
+import {BookCaseStyle} from './style';
+import {theme} from '../../global/globalBucket';
+import MainLogo from '../../components/Lottie/MainLogo';
+import {CardAccessoriesShowcase} from '../../components/BookList';
+export default ({navigation}) => {
   const navigateDetails = () => {
-    navigation.navigate('Details');
+    navigation.navigate('Details', {title: 'Clean Code'});
   };
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <TopNavigation title="MyApp" alignment="center" />
-      <Divider />
-      <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Button onPress={navigateDetails}>OPEN DETAILS</Button>
-      </Layout>
+      <ScrollView style={{flex: 1}}>
+        <Loading isLoad={false} />
+        <Layout style={BookCaseStyle.Header}>
+          <MainLogo isLoad={true} />
+          <Layout style={BookCaseStyle.IconAddLayout}>
+            <Icon
+              style={BookCaseStyle.IconAddSize}
+              fill={theme.pointColor}
+              name="plus-outline"
+            />
+          </Layout>
+        </Layout>
+        <Layout style={{flex: 1}}>
+          <CardAccessoriesShowcase />
+        </Layout>
+      </ScrollView>
     </SafeAreaView>
   );
 };
