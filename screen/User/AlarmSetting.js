@@ -1,14 +1,21 @@
-import React from 'react';
-import {SafeAreaView} from 'react-native';
-import {Layout, Text} from '@ui-kitten/components';
-import {TopNavigationAccessoriesShowcase} from '../../navigation/NavigationHeader';
+import React, {useState} from 'react';
+import {SafeAreaView, TouchableOpacity} from 'react-native';
+import {Picker} from '@react-native-community/picker';
+import {Button, Layout, Toggle, Text} from '@ui-kitten/components';
+import TopNavigationAccessoriesShowcase from '../../navigation/NavigationHeader';
+import {alarmSettingStyle} from './UserStyles';
+import {HOUR, MIN, WEEK, TIMERANGE} from '../../global/enum';
+import ProfileAlarmSettingTime from '../../components/ProfileAlarmSettingTime';
+import ProfileAlarmSettingWeek from '../../components/ProfileAlarmSettingWeek';
 
 export default ({route, navigation}) => {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={alarmSettingStyle.AlarmContainer}>
       <TopNavigationAccessoriesShowcase navigation={navigation} route={route} />
-      <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text category="h1">알람 설정</Text>
+      <ProfileAlarmSettingTime />
+      <ProfileAlarmSettingWeek />
+      <Layout style={alarmSettingStyle.AlarmEnterButton}>
+        <Button>알람맞추기</Button>
       </Layout>
     </SafeAreaView>
   );

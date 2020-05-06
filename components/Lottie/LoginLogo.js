@@ -7,11 +7,7 @@ export default () => {
   return (
     <Layout
       style={{width: width / 2, height: width / 1.3, alignSelf: 'center'}}>
-      <LottieView
-        source={require('../../assets/bookMain.json')}
-        autoPlay
-        loop
-      />
+      <LottieView source={require('../../assets/smile.json')} autoPlay loop />
     </Layout>
   );
 };

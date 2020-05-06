@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, useWindowDimensions} from 'react-native';
+import {Dimensions} from 'react-native';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import {Theme} from './globalStyle';
 
@@ -20,4 +20,13 @@ export const nullCheck = param => {
     default:
       return true;
   }
+};
+
+export const useInput = (initialValue = '') => {
+  const [value, setValue] = React.useState(initialValue);
+  return {value, onChangeText: setValue};
+};
+
+export const handleBackButton = () => {
+  return true;
 };

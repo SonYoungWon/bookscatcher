@@ -1,13 +1,26 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-import {Layout, Text} from '@ui-kitten/components';
+import {SafeAreaView, ScrollView} from 'react-native';
+import {Layout} from '@ui-kitten/components';
+import TopNavigationAccessoriesShowcase from '../../navigation/NavigationHeader';
+import {profileStyle} from './UserStyles';
+import ProfileInfoName from '../../components/ProfileInfoName';
+import ProfileStatus from '../../components/ProfileStatus';
+import ProfileBooks from '../../components/ProfileBooks';
 
-export default ({navigation}) => {
+export default ({route, navigation}) => {
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text category="h1">프로필</Text>
-      </Layout>
+    <SafeAreaView style={profileStyle.Container}>
+      <ScrollView>
+        <TopNavigationAccessoriesShowcase
+          navigation={navigation}
+          route={route}
+        />
+        <Layout style={profileStyle.ProfileInfo}>
+          <ProfileInfoName />
+          <ProfileStatus />
+          <ProfileBooks />
+        </Layout>
+      </ScrollView>
     </SafeAreaView>
   );
 };

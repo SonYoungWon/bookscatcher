@@ -1,21 +1,24 @@
-import React from 'react';
-import {SafeAreaView, ScrollView} from 'react-native';
-import {Text, Layout, Icon} from '@ui-kitten/components';
+import React, {useEffect} from 'react';
+import {SafeAreaView, ScrollView, BackHandler} from 'react-native';
+import {Layout, Icon, Card} from '@ui-kitten/components';
 import Loading from '../../components/Loading';
 import {BookCaseStyle} from './style';
-import {theme} from '../../global/globalBucket';
+import {theme, handleBackButton} from '../../global/globalBucket';
 import MainLogo from '../../components/Lottie/MainLogo';
-import {CardAccessoriesShowcase} from '../../components/BookList';
+import BookList from '../../components/BookList';
+import {NavigationLeft} from '../../navigation/NavigationLeft';
+
 export default ({navigation}) => {
-  const navigateDetails = () => {
-    navigation.navigate('Details', {title: 'Clean Code'});
-  };
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', handleBackButton);
+  }, []);
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <ScrollView style={{flex: 1}}>
+    <SafeAreaView style={BookCaseStyle.Container}>
+      <ScrollView style={BookCaseStyle.Container}>
         <Loading isLoad={false} />
         <Layout style={BookCaseStyle.Header}>
+          <NavigationLeft navigation={navigation} />
           <MainLogo isLoad={true} />
           <Layout style={BookCaseStyle.IconAddLayout}>
             <Icon
@@ -25,8 +28,8 @@ export default ({navigation}) => {
             />
           </Layout>
         </Layout>
-        <Layout style={{flex: 1}}>
-          <CardAccessoriesShowcase />
+        <Layout>
+          <BookList />
         </Layout>
       </ScrollView>
     </SafeAreaView>

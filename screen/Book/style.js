@@ -1,7 +1,5 @@
 import {StyleSheet} from 'react-native';
 import {iconSize} from '../../global/globalBucket';
-import {useTheme} from '@ui-kitten/components';
-import {width, height} from '../../global/globalBucket';
 
 export const BookCaseStyle = StyleSheet.create({
   Container: {
@@ -30,5 +28,27 @@ export const BookCaseStyle = StyleSheet.create({
 export const BookAddStyle = StyleSheet.create({
   Container: {
     flex: 1,
+  },
+});
+
+export const BookMemoStyle = StyleSheet.create({
+  Container: {
+    flex: 1,
+  },
+  ScrollView: {
+    flexGrow: 1,
+    justifyContent: 'flex-start',
+  },
+  MemoLayout: {
+    flex: 1,
+  },
+  MemoTitle: {
+    margin: 20,
+  },
+  MemoHeader: {
+    flexDirection: 'row',
+  },
+  DrawStyle: {
+    justifyContent: 'flex-start',
   },
 });

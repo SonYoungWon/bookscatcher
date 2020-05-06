@@ -1,6 +1,3 @@
-import React from 'react';
-import {Platform} from 'react-native';
-
 export const _APOLLO = {
   // uri: 'localhost:4000',
   uri: 'tattoos-f571855f29.herokuapp.com',

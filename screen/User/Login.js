@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
-import {SafeAreaView, Platform, ImageBackground} from 'react-native';
+import {SafeAreaView, Platform} from 'react-native';
 import {Layout, Text} from '@ui-kitten/components';
 import {authStyle} from './UserStyles';
 import GoogleButton from '../../components/SocialButton/GoogleButton';
@@ -8,13 +8,10 @@ import AppleButton from '../../components/SocialButton/AppleButton';
 import FaceBookButton from '../../components/SocialButton/FaceBookButton';
 import EmailButton from '../../components/SocialButton/EmailButton';
 import Loading from '../../components/Loading';
+import LoginLogo from '../../components/Lottie/LoginLogo';
 import auth from '@react-native-firebase/auth';
 import firebase from '@react-native-firebase/app';
-import {
-  iosConfig,
-  androidConfig,
-  LoginBackgroundImage,
-} from '../../global/manage';
+import {iosConfig, androidConfig} from '../../global/manage';
 import {nullCheck} from '../../global/globalBucket';
 import AsyncStorage from '@react-native-community/async-storage';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -30,10 +27,12 @@ export default ({navigation}) => {
   }, []);
 
   const checkLogin = async () => {
+    setIsLoad(true);
     const email = await AsyncStorage.getItem('email');
     if (nullCheck(email)) {
       navigation.navigate('Home');
     }
+    setIsLoad(false);
   };
 
   const firebaseInitial = async () => {
@@ -65,11 +64,13 @@ export default ({navigation}) => {
 
   return (
     <SafeAreaView contentContainerStyle={authStyle.Container}>
-      <KeyboardAwareScrollView>
+      <KeyboardAwareScrollView
+        contentContainerStyle={authStyle.KeyboardAwareScrollView}>
         <Loading isLoad={isLoad} />
-        <ImageBackground
-          source={LoginBackgroundImage}
-          style={authStyle.BackgroundImage}>
+        <Layout style={authStyle.LoginLogoLayout}>
+          <LoginLogo />
+        </Layout>
+        <Layout style={authStyle.LoginInputLayout}>
           <Layout style={authStyle.LoginHeaderLayout}>
             <Text style={authStyle.LoginHeaderText} category="h6">
               독서를 사랑하는 사람들을 위한 1등 앱
@@ -87,7 +88,7 @@ export default ({navigation}) => {
               <AppleButton loginButton={loginButton} setIsLoad={setIsLoad} />
             )}
           </Layout>
-        </ImageBackground>
+        </Layout>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );

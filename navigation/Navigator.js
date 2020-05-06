@@ -1,11 +1,9 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import BookAdd from '../screen/Book/BookAdd';
 import BookCase from '../screen/Book/BookCase';
 import BookDetail from '../screen/Book/BookDetail';
-import BookInfo from '../screen/Book/BookInfo';
 import BookMemo from '../screen/Book/BookMemo';
 import BookReview from '../screen/Book/BookReview';
 import BookShare from '../screen/Book/BookShare';
@@ -23,9 +21,8 @@ const HomeNavigator = () => {
   return (
     <Navigator headerMode="none">
       <Screen name="Login" component={Login} />
-      <Screen name="Home" component={BookCase}/>
+      <Screen name="Home" component={BookCase} />
       <Screen name="Details" component={BookDetail} />
-      <Screen name="BookInfo" component={BookInfo} />
       <Screen name="BookMemo" component={BookMemo} />
       <Screen name="BookReview" component={BookReview} />
       <Screen name="BookShare" component={BookShare} />
