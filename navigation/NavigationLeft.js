@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Layout, MenuItem, OverflowMenu, Icon} from '@ui-kitten/components';
-import {iconSize, theme, height} from '../global/globalBucket';
+import {iconSize, theme, logout} from '../global/globalBucket';
 
 export const NavigationLeft = ({navigation}) => {
   const [visible, setVisible] = React.useState(false);
@@ -34,6 +34,9 @@ export const NavigationLeft = ({navigation}) => {
     navigation.navigate('Profile');
   };
 
+  const logOutOnpress = () => {
+    logout(navigation);
+  };
   return (
     <Layout style={styles.container} level="1">
       <OverflowMenu
@@ -45,6 +48,7 @@ export const NavigationLeft = ({navigation}) => {
         onBackdropPress={() => setVisible(false)}>
         <MenuItem title="HOME" onPress={() => homeOnpress()} />
         <MenuItem title="PROFILE" onPress={() => profileOnpress()} />
+        <MenuItem title="LOGOUT" onPress={() => logOutOnpress()} />
       </OverflowMenu>
     </Layout>
   );

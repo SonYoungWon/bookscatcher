@@ -1,7 +1,11 @@
 import React from 'react';
-import {Dimensions} from 'react-native';
+import {Dimensions, Platform} from 'react-native';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import {Theme} from './globalStyle';
+import AsyncStorage from '@react-native-community/async-storage';
+import auth from '@react-native-firebase/auth';
+import firebase from '@react-native-firebase/app';
+import {iosConfig, androidConfig} from './manage';
 
 export const theme = Theme;
 export const {width, height: fullHieght} = Dimensions.get('window');
@@ -29,4 +33,23 @@ export const useInput = (initialValue = '') => {
 
 export const handleBackButton = () => {
   return true;
+};
+
+export const logout = async navigation => {
+  const firebaseInitial = async () => {
+    if (firebase.apps.length === 0) {
+      await firebase.initializeApp(
+        // use platform specific firebase config
+        Platform.OS === 'ios' ? iosConfig : androidConfig,
+      );
+    }
+  };
+
+  firebaseInitial();
+  auth().signOut();
+  await AsyncStorage.setItem('token', '');
+  await AsyncStorage.setItem('jwt', '');
+  await AsyncStorage.setItem('email', '');
+  await AsyncStorage.setItem('social', '');
+  navigation.navigate('Login');
 };

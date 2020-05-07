@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {SafeAreaView, ScrollView, BackHandler} from 'react-native';
 import {Layout, Icon, Card} from '@ui-kitten/components';
 import Loading from '../../components/Loading';

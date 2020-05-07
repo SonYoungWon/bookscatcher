@@ -66,3 +66,59 @@ export const WEEK = {
   SATURDAY: 'SATURDAY',
   SUNDAY: 'SUNDAY',
 };
+
+
+
+export const _BOOK = {
+  TITLE: 'title',
+  PRICE: 'price',
+  AUTHOR: 'author',
+  TRANSLATOR: 'translator',
+  CODE: 'code',
+  DESCRIPTION: 'description',
+  thumbnail: 'thumbnail',
+};
+
+export const _MYBOOK = {
+  USER: 'user',
+  BOOK: 'book',
+  MEMO: 'memo',
+  REVIEW: 'review',
+  FINISH: 'finish',
+  LEAVE: 'leave',
+  CREATEAT: 'createAt',
+};
+
+export const _MEMO = {
+  MYBOOK:'myBook',
+  SUBJECT:'subject',
+  CONTENT:'content',
+  CREATEAT:'createAt',
+};
+
+export const _REVIEW = {
+  MYBOOK:'myBook',
+  SUBJECT:'subject',
+  CONTENT:'content',
+  CREATEAT:'createAt',
+};
+
+export const _USER = {
+  UID: 'uid',
+  EMAIL: 'email',
+  NICK: 'nick',
+  AVATAR: 'avatar',
+  SCORE: 'score',
+  ALARM: 'alarm',
+};
+
+export const _ALARM = {
+  USER: 'user',
+  AM: 'am',
+  HOUR: 'hour',
+  MIN: 'min',
+  AFTER: 'after',
+  WEEK: 'week',
+  BELL: 'bell',
+  CREATEAT: 'createAt',
+};
