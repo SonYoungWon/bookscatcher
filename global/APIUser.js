@@ -1,4 +1,3 @@
-import React from 'react';
 import firestore from '@react-native-firebase/firestore';
 
 // 내 프로필
@@ -6,27 +5,22 @@ import firestore from '@react-native-firebase/firestore';
 export const setUser = async userInfo => {
   await firestore()
     .collection('User')
-    .add({
-      uid: userInfo.uid,
+    .doc(userInfo.uid)
+    .set({
       email: userInfo.email,
       nick: userInfo.nick,
       avatar: userInfo.avatar,
       score: userInfo.score,
       alarm: userInfo.alarm,
-    })
-    .then(() => {
-      console.log('setUser added!');
     });
 };
+
 // 내 정보 가져오기
 export const getMe = async uid => {
-  const me = await firestore()
+  return await firestore()
     .collection('User')
     .where('uid', '==', uid)
-    .get()
-    .then(snapshot => {
-      console.log('me: ', snapshot._docs);
-    });
+    .get();
 };
 // 책, 완독한 책, 독후감 쓴 책 가져오기 (Book API: getMyBooks())
 // 아바타, 닉네임 수정

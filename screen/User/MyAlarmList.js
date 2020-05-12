@@ -3,7 +3,7 @@ import {SafeAreaView, TouchableOpacity} from 'react-native';
 import {Layout} from '@ui-kitten/components';
 import TopNavigationAccessoriesShowcase from '../../navigation/NavigationHeader';
 import {alarmStyle} from './UserStyles';
-import ProfileAlarmList from '../../components/ProfileAlarmList';
+import ProfileAlarmList from '../../components/_Profile/ProfileAlarmList';
 
 export default ({route, navigation}) => {
   return (

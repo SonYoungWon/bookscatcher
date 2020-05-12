@@ -23,11 +23,28 @@ export const BookCaseStyle = StyleSheet.create({
     alignItems: 'center',
     top: -1 * 50,
   },
+  EmptyText: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+  },
+});
+
+export const BookDetailStyle = StyleSheet.create({
+  Container: {
+    flex: 1,
+  },
 });
 
 export const BookAddStyle = StyleSheet.create({
   Container: {
     flex: 1,
+  },
+  EmptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
@@ -50,5 +67,18 @@ export const BookMemoStyle = StyleSheet.create({
   },
   DrawStyle: {
     justifyContent: 'flex-start',
+  },
+  headerContainer: {
+    alignItems: 'center',
+    minHeight: 256,
+    paddingVertical: 24,
+  },
+  headerTitle: {
+    textAlign: 'center',
+    marginVertical: 24,
+    zIndex: 1,
+  },
+  headerDescription: {
+    zIndex: 1,
   },
 });

@@ -2,4 +2,5 @@
     <string name="app_name">bookscatcher</string>
     <string name="facebook_app_id">538353020208078</string> 
     <string name="fb_login_protocol_scheme">fb538353020208078</string>
+    <string name="kakao_app_key">9045063f78377a369a9a4af4f025cc77</string>
 </resources>

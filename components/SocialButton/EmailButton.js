@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Alert} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import {EmailSocialButton} from 'react-native-social-buttons';
-import {SOCIAL} from '../../global/enum';
+import {NOTICE} from '../../global/enum';
 import {Layout, Input} from '@ui-kitten/components';
 
 export default ({loginButton, setIsLoad}) => {
@@ -13,29 +13,37 @@ export default ({loginButton, setIsLoad}) => {
     setIsLoad(true);
     auth()
       .signInWithEmailAndPassword(emailVal, passwordVal)
-      .then(info => {
-        const {user} = info;
-        console.log(user);
-        const nick = user.email.split('@');
-        loginButton(user.email, nick[0]);
+      .then(fire => {
+        const {user} = fire;
+        loginButton(user);
       })
       .catch(error => {
         console.log(error);
         if (error.code === 'auth/email-already-in-use') {
           console.log('That email address is already in use!');
-          Alert.alert('이미 있는 이메일입니다.');
+          Alert.alert(NOTICE.ALEADYEMAIL);
         }
 
         if (error.code === 'auth/invalid-email') {
           console.log('That email address is invalid!');
-          Alert.alert('아이디는 이메일 형식이어야 합니다.');
+          Alert.alert(NOTICE.ALEADYREGEX);
+        }
+
+        if (error.code === 'auth/user-not-found') {
+          console.log('That new email');
+          auth()
+            .createUserWithEmailAndPassword(emailVal, passwordVal)
+            .then(fire => {
+              const {user} = fire;
+              loginButton(user);
+            });
         }
       });
     setIsLoad(false);
   };
 
   return (
-    <Layout style={{width: '100%'}}>
+    <Layout style={{width: '100%', marginBottom: 20}}>
       <Input
         placeholder="아이디"
         value={emailVal}

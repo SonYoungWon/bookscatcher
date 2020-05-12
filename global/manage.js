@@ -35,4 +35,9 @@ export const iosConfig = {
   persistence: true,
 };
 
+export const NAVER = {
+  'X-Naver-Client-Id': 'hgnRzkr6UUUb9yxwdsqr',
+  'X-Naver-Client-Secret': 'aYyK72XHgW',
+};
+
 export const LoginBackgroundImage = require('../assets/back2.jpg');

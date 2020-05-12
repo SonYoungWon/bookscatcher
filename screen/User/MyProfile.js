@@ -3,9 +3,9 @@ import {SafeAreaView, ScrollView} from 'react-native';
 import {Layout} from '@ui-kitten/components';
 import TopNavigationAccessoriesShowcase from '../../navigation/NavigationHeader';
 import {profileStyle} from './UserStyles';
-import ProfileInfoName from '../../components/ProfileInfoName';
-import ProfileStatus from '../../components/ProfileStatus';
-import ProfileBooks from '../../components/ProfileBooks';
+import ProfileInfoName from '../../components/_Profile/ProfileInfoName';
+import ProfileStatus from '../../components/_Profile/ProfileStatus';
+import ProfileBooks from '../../components/_Profile/ProfileBooks';
 
 export default ({route, navigation}) => {
   return (

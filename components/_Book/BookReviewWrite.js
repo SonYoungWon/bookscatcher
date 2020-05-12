@@ -1,34 +1,38 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {Divider, Layout, Text, Input} from '@ui-kitten/components';
-import ImageOverlay from 'react-native-image-overlay';
-import {useInput} from '../global/globalBucket';
+import {Divider, Layout, Input, Button} from '@ui-kitten/components';
 import InputScrollView from 'react-native-input-scroll-view';
+import {useInputState, height, nullCheck} from '../../global/globalBucket';
+import {setReview, updateReview} from '../../global/APIBook';
+import {REVIEW} from '../../global/enum';
 
-export default () => {
-  const reviewInput = useInput(
-    '이 편지는 영국에서 시작되어 여기까지 왔습니다. 한샘인테리어 수산교회 송설감정평가 투자상담환영 파장동 상아아파트 한일타운 창룡문 홈프러스 등등 하하하하하하하하하하',
-  );
+export default ({review, book, setMode}) => {
+  const reviewInput = useInputState(review.content);
+  const reviewOnpress = () => {
+    if (!nullCheck(review.content)) {
+      setReview({book: book, content: reviewInput.value});
+    } else {
+      updateReview({book: book, content: reviewInput.value});
+    }
+    setMode(REVIEW.VIEW);
+  };
   return (
     <Layout style={styles.container}>
-      <ImageOverlay
-        source={require('../assets/book4.jpg')}
-        style={styles.headerContainer}>
-        <Text style={styles.headerTitle} category="h1" status="control">
-          CLEAN CODE
-        </Text>
-        <Text style={styles.headerDescription} category="s1" status="control">
-          거스히딩크 / 아베 신조
-        </Text>
-      </ImageOverlay>
       <Layout style={styles.contentContainer} level="1">
         <InputScrollView>
           <Input
             multiline={true}
-            textStyle={{minHeight: 64}}
-            placeholder="Multiline"
+            textStyle={{minHeight: height / 3}}
+            placeholder="독후감을 입력해주세요"
             {...reviewInput}
           />
+          <Button
+            onPress={() => reviewOnpress()}
+            style={styles.footerControl}
+            size="medium"
+            status="danger">
+            저장하기
+          </Button>
         </InputScrollView>
       </Layout>
       <Divider />

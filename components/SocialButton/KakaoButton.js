@@ -3,7 +3,6 @@ import {Platform, StyleSheet, Text, View, Image, YellowBox} from 'react-native';
 import firebase from '@react-native-firebase/app';
 import auth from '@react-native-firebase/auth';
 import KakaoLogins from '@react-native-seoul/kakao-login';
-import NativeButton from 'apsl-react-native-button';
 import {_SOCIAL} from '../../global/enum';
 import {KakaoSocialButton} from 'react-native-social-buttons';
 
@@ -12,7 +11,6 @@ if (!KakaoLogins) {
 }
 
 const logCallback = (log, callback) => {
-  console.log(log);
   callback;
 };
 
@@ -34,7 +32,6 @@ export default ({loginButton}) => {
   const kakaoLogin = async () => {
     await KakaoLogins.login()
       .then(result => {
-        console.log(result);
         setToken(result.accessToken);
         logCallback(
           `Login Finished:${JSON.stringify(result)}`,
@@ -43,7 +40,7 @@ export default ({loginButton}) => {
         getProfile();
       })
       .catch(err => {
-        console.log(err);
+        console.log('Error: ', err);
         if (err.code === 'E_CANCELLED_OPERATION') {
           logCallback(`Login Cancelled:${err.message}`, setLoginLoading(false));
         } else {

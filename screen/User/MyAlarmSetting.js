@@ -1,12 +1,10 @@
-import React, {useState} from 'react';
-import {SafeAreaView, TouchableOpacity} from 'react-native';
-import {Picker} from '@react-native-community/picker';
-import {Button, Layout, Toggle, Text} from '@ui-kitten/components';
+import React from 'react';
+import {SafeAreaView} from 'react-native';
+import {Button, Layout} from '@ui-kitten/components';
 import TopNavigationAccessoriesShowcase from '../../navigation/NavigationHeader';
 import {alarmSettingStyle} from './UserStyles';
-import {HOUR, MIN, WEEK, TIMERANGE} from '../../global/enum';
-import ProfileAlarmSettingTime from '../../components/ProfileAlarmSettingTime';
-import ProfileAlarmSettingWeek from '../../components/ProfileAlarmSettingWeek';
+import ProfileAlarmSettingTime from '../../components/_Profile/ProfileAlarmSettingTime';
+import ProfileAlarmSettingWeek from '../../components/_Profile/ProfileAlarmSettingWeek';
 
 export default ({route, navigation}) => {
   return (

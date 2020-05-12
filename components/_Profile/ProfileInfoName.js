@@ -13,14 +13,16 @@ const ProfileInfoName = ({route, navigation}) => {
         <Avatar
           style={profileStyle.ProfileInfoNameAvatar}
           size="giant"
-          source={require('../assets/book6.jpg')}
+          source={require('../../assets/book6.jpg')}
         />
       </Layout>
       <Button
         style={profileStyle.ProfileInfoButton}
         size="large"
         status="danger"
-        onPress={() => navigation.navigate('AlarmList', {title: '알람 설정'})}>
+        onPress={() =>
+          navigation.navigate('MyAlarmList', {title: '알람 설정'})
+        }>
         독서 시간 알람 설정
       </Button>
     </>

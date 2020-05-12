@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Card, Layout, Text} from '@ui-kitten/components';
-import {height} from '../global/globalBucket';
+import {height} from '../../global/globalBucket';
 import {withNavigation} from '@react-navigation/compat';
 
 const ProfileAlarmList = ({route, navigation}) => {
@@ -14,7 +14,7 @@ const ProfileAlarmList = ({route, navigation}) => {
   };
 
   const alarmOnpress = (id = '') => {
-    navigation.navigate('AlarmSetting', {title: '알람 설정'});
+    navigation.navigate('MyAlarmSetting', {title: '알람 설정'});
   };
 
   return (

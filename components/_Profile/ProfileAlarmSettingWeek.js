@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {TouchableOpacity, StyleSheet} from 'react-native';
 import {Layout, Text} from '@ui-kitten/components';
-import {WEEK} from '../global/enum';
+import {WEEK} from '../../global/enum';
 
 export default ({route, navigation}) => {
   const [day, setDay] = useState([]);

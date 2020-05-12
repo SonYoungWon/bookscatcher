@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import {Layout, Toggle, Text} from '@ui-kitten/components';
-import {HOUR, MIN, TIMERANGE} from '../global/enum';
+import {HOUR, MIN, TIMERANGE} from '../../global/enum';
 
 export default ({route, navigation}) => {
   const [day, setDay] = useState([]);

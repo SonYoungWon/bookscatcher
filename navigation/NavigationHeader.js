@@ -1,13 +1,20 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {SCREEN, MEMO} from '../global/enum';
+import {SCREEN, MEMO, ADD, SORT} from '../global/enum';
 import {nullCheck} from '../global/globalBucket';
 import {
   Layout,
   TopNavigation,
   TopNavigationAction,
 } from '@ui-kitten/components';
-import {BackIcon, AddIcon, SearchIcon, EditIcon, backOnpress} from './bucket';
+import {
+  BackIcon,
+  AddIcon,
+  SearchIcon,
+  EditIcon,
+  backOnpress,
+  arrowDownIcon,
+} from './bucket';
 import {withNavigation} from '@react-navigation/compat';
 
 const TopNavigationAccessoriesShowcase = ({
@@ -16,7 +23,9 @@ const TopNavigationAccessoriesShowcase = ({
   type = '',
   state = null,
 }) => {
-  const title = nullCheck(route.params) ? route.params.title : route.name;
+  const title = nullCheck(route.params)
+    ? route.params.title.substring(0, 16)
+    : route.name.substring(0, 16);
 
   const RenderRightMemoActions = () => {
     return (
@@ -27,8 +36,29 @@ const TopNavigationAccessoriesShowcase = ({
             state.setMode(state.mode === MEMO.VIEW ? MEMO.WRITE : MEMO.VIEW)
           }
         />
-        <TopNavigationAction icon={SearchIcon} />
-        <TopNavigationAction icon={AddIcon} />
+        <TopNavigationAction
+          icon={arrowDownIcon}
+          onPress={() =>
+            state.setSort(state.sort === SORT.ASC ? SORT.DESC : SORT.ASC)
+          }
+        />
+        <TopNavigationAction
+          onPress={() => state.setAdd(ADD.ADD)}
+          icon={AddIcon}
+        />
+      </React.Fragment>
+    );
+  };
+
+  const RenderRightReviewActions = () => {
+    return (
+      <React.Fragment>
+        <TopNavigationAction
+          icon={EditIcon}
+          onPress={() =>
+            state.setMode(state.mode === MEMO.VIEW ? MEMO.WRITE : MEMO.VIEW)
+          }
+        />
       </React.Fragment>
     );
   };
@@ -48,8 +78,9 @@ const TopNavigationAccessoriesShowcase = ({
   const getHeaderRight = () => {
     switch (route.name) {
       case SCREEN.BOOKMEMO:
-      case SCREEN.BOOKREVIEW:
         return RenderRightMemoActions(navigation);
+      case SCREEN.BOOKREVIEW:
+        return RenderRightReviewActions(navigation);
       case SCREEN.BOOKADD:
         return RenderRightActions(navigation);
       case SCREEN.ALARMLIST:

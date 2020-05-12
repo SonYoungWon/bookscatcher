@@ -5,7 +5,7 @@ import appleAuth, {
   AppleAuthRequestOperation,
   AppleButton,
 } from '@invertase/react-native-apple-authentication';
-import {_SOCIAL} from '../../global/enum';
+import {_SOCIAL, NOTICE} from '../../global/enum';
 import {Alert} from 'react-native';
 
 export default ({loginButton, setIsLoad}) => {
@@ -22,12 +22,12 @@ export default ({loginButton, setIsLoad}) => {
 
     // Ensure Apple returned a user identityToken
     if (!appleAuthRequestResponse.identityToken) {
-      Alert.alert('로그인 실패');
+      Alert.alert(NOTICE.LOGINFAIL);
       throw 'Apple Sign-In failed - no identify token returned';
     }
 
     // Create a Firebase credential from the response
-    const {identityToken, nonce, email, fullName} = appleAuthRequestResponse;
+    const {identityToken, nonce} = appleAuthRequestResponse;
 
     const appleCredential = auth.AppleAuthProvider.credential(
       identityToken,
@@ -36,17 +36,13 @@ export default ({loginButton, setIsLoad}) => {
 
     await auth()
       .signInWithCredential(appleCredential)
-      .then(ggl => {
-        const {user} = ggl;
-        const nick = user.email.split('@');
-        loginButton(
-          user.email,
-          user.displayName === null ? nick[0] : user.displayName,
-        );
+      .then(fire => {
+        const {user} = fire;
+        loginButton(user);
       })
       .catch(error => {
         console.log(error);
-        Alert.alert('이미 가입된 아이디가 있습니다.');
+        Alert.alert(NOTICE.LOGINALEADY);
       });
     setIsLoad(false);
     // Sign the user in with the credential

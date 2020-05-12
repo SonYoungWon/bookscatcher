@@ -1,7 +1,7 @@
 import React from 'react';
 import auth from '@react-native-firebase/auth';
 import {LoginManager, AccessToken} from 'react-native-fbsdk';
-import {SOCIAL} from '../../global/enum';
+import {NOTICE} from '../../global/enum';
 import {FacebookSocialButton} from 'react-native-social-buttons';
 import {Alert} from 'react-native';
 
@@ -31,14 +31,13 @@ export default ({loginButton, setIsLoad}) => {
     );
     await auth()
       .signInWithCredential(facebookCredential)
-      .then(au => {
-        const {user} = au;
-        console.log(au);
-        loginButton(user.email, user.displayName);
+      .then(fire => {
+        const {user} = fire;
+        loginButton(user);
       })
       .catch(err => {
         console.log(err);
-        Alert.alert('이미 가입된 아이디가 있습니다.');
+        Alert.alert(NOTICE.ALEADYEMAIL);
       });
     setIsLoad(false);
 

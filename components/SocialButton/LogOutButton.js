@@ -17,7 +17,6 @@ export default ({navigation}) => {
   };
 
   const _onLogout = async () => {
-    console.log('logout');
     firebaseInitial();
     auth().signOut();
     await AsyncStorage.setItem('token', '');

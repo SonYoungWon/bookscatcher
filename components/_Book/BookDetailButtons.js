@@ -3,17 +3,16 @@ import {StyleSheet} from 'react-native';
 import {Button, Layout} from '@ui-kitten/components';
 import {withNavigation} from '@react-navigation/compat';
 
-const BookDetailButtons = ({navigation}) => {
+const BookDetailButtons = ({navigation, book}) => {
   const memoOnpress = () => {
-    console.log('memoOnpress');
-    navigation.navigate('BookMemo', {title: 'Clean Code'});
+    navigation.navigate('BookMemo', {title: book.title, data: book});
   };
 
   const reportOnpress = () => {
-    navigation.navigate('BookReview', {title: 'Clean Code'});
+    navigation.navigate('BookReview', {title: 'Clean Code', data: book});
   };
   const shareOnpress = () => {
-    navigation.navigate('BookMemo', {title: 'Clean Code'});
+    navigation.navigate('BookMemo', {title: 'Clean Code', data: book});
   };
   return (
     <React.Fragment>

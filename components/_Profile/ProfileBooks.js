@@ -2,8 +2,9 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Layout, Text} from '@ui-kitten/components';
 import ProfileBooksFlat from './ProfileBooksFlat';
+import {withNavigation} from '@react-navigation/compat';
 
-export default ({route, navigation}) => {
+const ProfileBooks = ({navigation}) => {
   return (
     <Layout style={profileStyle.ProfileBooks}>
       <Layout style={profileStyle.ProfileBooksSection}>
@@ -29,3 +30,5 @@ export const profileStyle = StyleSheet.create({
   ProfileBooksSection: {marginHorizontal: 10},
   ProfileBooksSectionText: {marginHorizontal: 10, marginVertical: 10},
 });
+
+export default withNavigation(ProfileBooks);

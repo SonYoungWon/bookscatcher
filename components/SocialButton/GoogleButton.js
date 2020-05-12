@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-community/google-signin';
 import {Alert} from 'react-native';
-import {SOCIAL} from '../../global/enum';
+import {NOTICE} from '../../global/enum';
 import {GoogleSocialButton} from 'react-native-social-buttons';
 
 // eslint-disable-next-line prettier/prettier
@@ -21,17 +21,13 @@ export default ({loginButton, setIsLoad}) => {
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     await auth()
       .signInWithCredential(googleCredential)
-      .then(ggl => {
-        const {user} = ggl;
-        const nick = user.email.split('@');
-        loginButton(
-          user.email,
-          user.displayName === null ? nick[0] : user.displayName,
-        );
+      .then(fire => {
+        const {user} = fire;
+        loginButton(user);
       })
       .catch(error => {
         console.log(error);
-        Alert.alert('이미 가입된 아이디가 있습니다.');
+        Alert.alert(NOTICE.ALEADYEMAIL);
       });
     setIsLoad(false);
     // Sign-in the user with the credential

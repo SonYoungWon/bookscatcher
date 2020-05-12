@@ -15,6 +15,7 @@ import {iosConfig, androidConfig} from '../../global/manage';
 import {nullCheck} from '../../global/globalBucket';
 import AsyncStorage from '@react-native-community/async-storage';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {loginHandle} from './bucket';
 
 export default ({navigation}) => {
   const [initializing, setInitializing] = useState(true);
@@ -28,7 +29,7 @@ export default ({navigation}) => {
 
   const checkLogin = async () => {
     setIsLoad(true);
-    const email = await AsyncStorage.getItem('email');
+    const email = await AsyncStorage.getItem('uid');
     if (nullCheck(email)) {
       navigation.navigate('Home');
     }
@@ -53,11 +54,9 @@ export default ({navigation}) => {
     return null;
   }
 
-  const loginButton = async (email, name) => {
-    if (nullCheck(email)) {
-      console.log('login OK');
-      await AsyncStorage.setItem('email', email);
-      await AsyncStorage.setItem('nick', name);
+  const loginButton = async user => {
+    if (nullCheck(user.uid)) {
+      loginHandle(user);
       navigation.navigate('Home');
     }
   };

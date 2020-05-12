@@ -1,36 +1,19 @@
 /* eslint-disable prettier/prettier */
 export const SCREEN = {
   HOME: 'Home',
-  DETAILS: 'Details',
+  BOOKDETAIL: 'BookDetail',
   BOOKINFO: 'BookInfo',
   BOOKMEMO: 'BookMemo',
   BOOKREVIEW: 'BookReview',
   BOOKSHARE: 'BookShare',
   BOOKADD: 'BookAdd',
-  ALARMLIST: 'AlarmList',
-  ALARMSETTING: 'AlarmSetting',
-  BOOKCASEREMOVE: 'BookCaseRemove',
+  MYALARMLIST: 'MyAlarmList',
+  MYALARMSETTING: 'MyAlarmSetting',
+  MYBOOKCASEREMOVE: 'MyBookCaseRemove',
   LOGIN: 'Login',
   MYREVIEWLIST: 'MyReviewList',
   MYREVIEWWATCH: 'MyReviewWatch',
-  PROFILE: 'Profile',
-};
-
-export const TITLE = {
-  HOME: 'Home',
-  DETAILS: 'Details',
-  BOOKINFO: 'BookInfo',
-  BOOKMEMO: 'BookMemo',
-  BOOKREVIEW: 'BookReview',
-  BOOKSHARE: 'BookShare',
-  BOOKADD: 'BookAdd',
-  ALARMLIST: 'AlarmList',
-  ALARMSETTING: 'AlarmSetting',
-  BOOKCASEREMOVE: 'BookCaseRemove',
-  LOGIN: 'Login',
-  MYREVIEWLIST: 'MyReviewList',
-  MYREVIEWWATCH: 'MyReviewWatch',
-  PROFILE: 'Profile',
+  MYPROFILE: 'MyProfile',
 };
 
 export const SOCIAL = {
@@ -46,9 +29,19 @@ export const MEMO = {
   WRITE: 'write',
 };
 
+export const ADD = {
+  ADD: true,
+  NOTADD: false,
+};
+
 export const REVIEW = {
   VIEW: 'view',
   WRITE: 'write',
+};
+
+export const SORT = {
+  DESC: 'desc',
+  ASC: 'asc',
 };
 
 export const HOUR = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -121,4 +114,13 @@ export const _ALARM = {
   WEEK: 'week',
   BELL: 'bell',
   CREATEAT: 'createAt',
+};
+
+export const NOTICE = {
+  LOGINFAIL : '로그인 실패',
+  LOGINALEADY: '이미 가입된 아이디가 있습니다',
+  ALEADYEMAIL: '이미 있는 이메일입니다.',
+  ALEADYREGEX: '아이디는 이메일 형식이어야 합니다.',
+  ALEADYBOOK: '이 책은 이미 책장에 있어요~',
+  ADDBOOK: '책이 추가되었어요!',
 };

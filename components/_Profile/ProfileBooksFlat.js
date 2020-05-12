@@ -1,47 +1,54 @@
 import React from 'react';
 import {FlatList, StyleSheet} from 'react-native';
-import {Layout} from '@ui-kitten/components';
+import {Layout, Card} from '@ui-kitten/components';
 import Image from 'react-native-scalable-image';
-import {width, theme} from '../global/globalBucket';
+import {width, theme} from '../../global/globalBucket';
+import {withNavigation} from '@react-navigation/compat';
 
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
     title: 'First Item',
-    url: '../assets/book1.jpg',
+    url: '../../assets/book1.jpg',
   },
   {
     id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
     title: 'Second Item',
-    url: '../assets/book2.jpg',
+    url: '../../assets/book2.jpg',
   },
   {
     id: '58694a0f-3da1-471f-bd96-145571e29d72',
     title: 'Third Item',
-    url: '../assets/book3.jpg',
+    url: '../../assets/book3.jpg',
   },
   {
     id: '58694a0f-3da1-471f-bd96-145571e29d32',
     title: 'Third Item',
-    url: '../assets/book3.jpg',
+    url: '../../assets/book3.jpg',
   },
   {
     id: '58694a0f-3da1-471f-bd96-145571e29472',
     title: 'Third Item',
-    url: '../assets/book3.jpg',
+    url: '../../assets/book3.jpg',
   },
   {
     id: '58694a0f-3da1-471f-bd96-145571e29572',
     title: 'Third Item',
-    url: '../assets/book3.jpg',
+    url: '../../assets/book3.jpg',
   },
 ];
 
-const ProfileBooksFlat = () => {
+const ProfileBooksFlat = ({navigation}) => {
+  const bookOnpress = () => {
+    navigation.navigate('BookDetail');
+  };
+
   const Item = title => {
     return (
       <Layout style={styles.flatItemContainer}>
-        <Image width={width / 5} source={require('../assets/book1.jpg')} />
+        <Card onPress={() => bookOnpress()}>
+          <Image width={width / 5} source={require('../../assets/book1.jpg')} />
+        </Card>
       </Layout>
     );
   };
@@ -66,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileBooksFlat;
+export default withNavigation(ProfileBooksFlat);

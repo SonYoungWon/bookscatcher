@@ -31,7 +31,7 @@ export const NavigationLeft = ({navigation}) => {
 
   const profileOnpress = () => {
     setVisible(false);
-    navigation.navigate('Profile');
+    navigation.navigate('MyProfile');
   };
 
   const logOutOnpress = () => {

@@ -4,7 +4,6 @@ import {Layout} from '@ui-kitten/components';
 import {width, height} from '../global/globalBucket';
 
 export default ({isLoad}) => {
-  console.log(isLoad);
   return isLoad ? (
     <Layout
       style={{
