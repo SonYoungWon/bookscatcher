@@ -1,7 +1,8 @@
 # bookscatcher
 개요 : <br/>
-![LOGIN](./assets/s0.png)
-
+<div>
+<img src="./assets/s0.png" width="20%" height:"200"></img>
+</div>
 
 기술 Stack :<br/>
   React-Native<br/>
