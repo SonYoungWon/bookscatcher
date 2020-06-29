@@ -1,17 +1,5 @@
 # bookscatcher
 개요 : <br/>
-<div>
-<img src="./assets/s0.png" width="20%" height:"200"></img>
-<img src="./assets/s1.png" width="20%" height:"200"></img>
-<img src="./assets/s2.png" width="20%" height:"200"></img><br/>
-<img src="./assets/s3.png" width="20%" height:"200"></img>
-<img src="./assets/s4.png" width="20%" height:"200"></img>
-<img src="./assets/s5.png" width="20%" height:"200"></img><br/>
-<img src="./assets/s6.png" width="20%" height:"200"></img>
-<img src="./assets/s7.png" width="20%" height:"200"></img>
-<img src="./assets/s8.png" width="20%" height:"200"></img><br/>
-<img src="./assets/s9.png" width="20%" height:"200"></img>
-</div>
 
 기술 Stack :<br/>
   React-Native<br/>
@@ -38,3 +26,16 @@ UI Component :<br/>
   책의 권수, 완독율, 독후감 쓴 도서가 많은 회원일수록 등급을 산정해 성취감을 느끼게 하는 요소<br/>
   책 읽을 설정. 설정한 시간에 알람 기능 <br/>
   
+썸네일 : <br/>
+<div>
+<img src="./assets/s0.png" width="20%" height:"200"></img>
+<img src="./assets/s1.png" width="20%" height:"200"></img>
+<img src="./assets/s2.png" width="20%" height:"200"></img><br/>
+<img src="./assets/s3.png" width="20%" height:"200"></img>
+<img src="./assets/s4.png" width="20%" height:"200"></img>
+<img src="./assets/s5.png" width="20%" height:"200"></img><br/>
+<img src="./assets/s6.png" width="20%" height:"200"></img>
+<img src="./assets/s7.png" width="20%" height:"200"></img>
+<img src="./assets/s8.png" width="20%" height:"200"></img><br/>
+<img src="./assets/s9.png" width="20%" height:"200"></img>
+</div>
