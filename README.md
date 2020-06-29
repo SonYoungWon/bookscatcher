@@ -1,6 +1,6 @@
 # bookscatcher
 
-기술 Stack :
+기술 Stack :<br/>
   React-Native<br/>
   FireBase FireStore<br/>
   Firebase FireAuth<br/>
@@ -8,14 +8,14 @@
   Firebase Messaging<br/>
   Firebase Storage<br/>
   <br/>
-UI Component :
+UI Component :<br/>
   UI Kitten<br/>
   Lottie<br/>
   <br/>
-책 정보 API :
+책 정보 API :<br/>
   KAKAO 책 검색 API<br/>
   <br/>
-기능 :
+기능 :<br/>
   자신의 보유 책을 추가<br/>
   SMS와 연동으로 서점에서 책구입시 자동으로 책 추가 로직 구현(Android, IOS SMS 권한 정책에 심사문제로 기능 삭제.)<br/>
   도서의 완독여부 설정<br/>
